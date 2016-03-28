@@ -1,0 +1,32 @@
+<head>
+  <title>Grapevine</title>
+  <meta name='viewport' content='width=device-width'>
+</head>
+
+<body></body>
+
+<template name='all'>
+  {{> toolbar left='toolbarLoading' title='All Posts' right='toolbarCreate'}}
+  <ul>
+    {{#momentum plugin='height'}}
+      {{#each posts}}
+        {{> post}}
+      {{/each}}
+    {{/momentum}}
+  </ul>
+</template>
+
+<template name='new'>
+  {{> toolbar left='toolbarBack' title='New Post' right='toolbarNone'}}
+  <main>
+    <textarea class='materialize-textarea post-input' placeholder='I am free.'>{{draft}}</textarea>
+  </main>
+</template>
+
+<template name='post'>
+  <li>
+    <div class='inner'>
+      {{content}}
+    </div>
+  </li>
+</template>
