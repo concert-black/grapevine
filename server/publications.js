@@ -1,4 +1,4 @@
-Posts._ensureIndex({'location.coordinates': '2dsphere'});
+Posts._ensureIndex({'location': '2dsphere'});
 Meteor.publish('posts', (position) => {
   return Posts.find({
     'location': {
