@@ -1,6 +1,8 @@
 Template.all.helpers({
   posts: () => {
-    return Posts.find();
+    return Posts.find({}, {
+      sort: {date: -1}
+    });
   }
 });
 Template.all.events({
@@ -19,6 +21,11 @@ Template.new.events({
     event.preventDefault();
     Session.set('draft', $('.post-input').val());
     Router.go('/');
+  },
+  'click .toolbarConfirm': (event) => {
+    event.preventDefault();
+    Meteor.call('posts.insert', $('.post-input').val(), JSON.parse(Session.get('position')));
+    Router.go('/')
   }
 });
 Template.toolbarLoading.helpers({

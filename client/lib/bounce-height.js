@@ -25,6 +25,12 @@ Momentum.registerPlugin('height', () => {
           }
         });
     },
+    moveElement: (node, next, done) => {
+      let self = this;
+      self.removeElement(node, () => {
+        self.insertElement(node, next, done);
+      });
+    },
     removeElement: (node, done) => {
       $(node)
         .velocity({
