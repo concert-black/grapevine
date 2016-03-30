@@ -10,22 +10,62 @@ Template.all.events({
     event.preventDefault();
     Router.go('/new');
   }
-})
+});
+Template.post.helpers({
+  distance: function() {
+    const position = JSON.parse(Session.get('position'));
+    return format(distance({
+        longitude: this.location.coordinates[0],
+        latitude: this.location.coordinates[1]
+      }, {
+        longitude: position.longitude,
+        latitude: position.latitude
+      }), units.distance);
+  },
+  time: function() {
+    return this.date;
+  }
+});
+Template.toolbarConfirm.helpers({
+  canConfirm: () => {
+    return checkPost(Session.get('draft'));
+  }
+});
 Template.new.helpers({
   draft: () => {
     return Session.get('draft');
+  },
+  remaining: () => {
+    return Session.get('remaining') || postCharacterLimit;
+  },
+  negative: () => {
+    return Session.get('remaining') < 0;
   }
 });
 Template.new.events({
   'click .toolbarBack': (event) => {
     event.preventDefault();
-    Session.set('draft', $('.post-input').val());
     Router.go('/');
   },
   'click .toolbarConfirm': (event) => {
     event.preventDefault();
+    if (Session.get('characters') < 0 || Session.get('characters') == postCharacterLimit) {
+      return;
+    }
     Meteor.call('posts.insert', $('.post-input').val(), JSON.parse(Session.get('position')));
+    Session.set('draft', '');
+    Session.set('remaining', postCharacterLimit)
     Router.go('/')
+  },
+  'keydown .post-input': (event) => {
+    if (event.which === 13) {
+      $('.toolbarConfirm').trigger('click');
+    }
+  },
+  'input .post-input': (event) => {
+    const draft = $('.post-input').val();
+    Session.set('draft', draft);
+    Session.set('remaining', postCharacterLimit - draft.length);
   }
 });
 Template.toolbarLoading.helpers({

@@ -20,13 +20,23 @@
   {{> toolbar left='toolbarBack' title='New Post' right='toolbarConfirm'}}
   <main>
     <textarea class='materialize-textarea post-input' placeholder='I am free.'>{{draft}}</textarea>
+    <p class='remaining {{#if negative}}negative{{/if}}'>{{remaining}}</p>
+    {{canConfirm}}
+  </main>
+</template>
+
+<template name='view'>
+  {{> toolbar left='toolbarBack' title='Post' right='toolbarNone'}}
+  <main>
+    {{content}}
   </main>
 </template>
 
 <template name='post'>
-  <li>
-    <div class='inner'>
-      {{content}}
+  <li class='post'>
+    <div class='container'>
+      <p class='content'>{{content}}</p>
+      <p class='metadata'>{{distance}} - {{livestamp time}}</p>
     </div>
   </li>
 </template>

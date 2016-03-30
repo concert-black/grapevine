@@ -23,3 +23,5 @@ iron:router
 fastclick
 materialize:materialize
 check
+copleykj:livestamp
+momentjs:moment
