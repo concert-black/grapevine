@@ -7,7 +7,7 @@
 </template>
 
 <template name='toolbarLoading'>
-  <div class='toolbarLoading' style='opacity: {{loading}}'></div>
+  <div class='toolbarLoading {{#unless isLoading}}hidden{{/unless}}'></div>
 </template>
 
 <template name='toolbarCreate'>

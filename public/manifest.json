@@ -1,0 +1,15 @@
+{
+  "short_name": "Grapevine",
+  "name": "Grapevine",
+  "icons": [
+    {
+      "src": "/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#red",
+  "theme_color": "#8a619e",
+  "display": "standalone",
+  "orientation": "portrait"
+}

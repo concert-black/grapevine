@@ -20,8 +20,12 @@ seba:minifiers-autoprefixer
 ejson
 percolate:momentum
 iron:router
-fastclick
 materialize:materialize
 check
 copleykj:livestamp
 momentjs:moment
+
+
+thepumpinglemma:chance
+icellan:sjcl
+ccorcos:transitioner

@@ -1,6 +1,6 @@
 Momentum.registerPlugin('height', () => {
   options = {
-    duration: animationDuration,
+    duration: ANIMATION_DURATION,
     easing: {
       in: [512, 0],
       out: [64, 0]
