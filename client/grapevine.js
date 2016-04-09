@@ -104,6 +104,7 @@ Template.new.events({
 });
 Template.new.onRendered(function () {
   $('textarea').trigger('autoresize');
+  $('textarea').focus();
 });
 Template.view.helpers({
   post: () => {
@@ -123,7 +124,7 @@ Template.view.events({
 
 Session.set('locating', true);
 if ('geolocation' in navigator) {
-  navigator.geolocation.getCurrentPosition((position) => {
+  navigator.geolocation.watchPosition((position) => {
     const coordinates = {
       longitude: position.coords.longitude,
       latitude: position.coords.latitude
