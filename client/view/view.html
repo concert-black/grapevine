@@ -1,0 +1,10 @@
+<template name='view'>
+  <section class='view'>
+    {{> toolbar left='toolbarBack' title='Post' right='toolbarNone'}}
+    <main>
+      <p class='content'>{{content}}</p>
+      <p class='metadata'>Posted by {{> tag user=user hue=hue}} at {{time}}</p>
+      <textarea class='materialize-textarea post-input' placeholder='New comment'></textarea>
+    </main>
+  </section>
+</template>

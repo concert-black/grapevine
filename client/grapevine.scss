@@ -23,7 +23,7 @@ body {
 }
 textarea {
 	user-select: text;
-	padding: 0 !important;
+	padding-top: 0 !important;
 }
 section {
 	flex-direction: column;
@@ -164,7 +164,6 @@ main {
 .new {
 	.remaining {
 		margin: 0;
-		text-align: right;
 		&.negative {
 			font-weight: bold;
 			color: darkred;

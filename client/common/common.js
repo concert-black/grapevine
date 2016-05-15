@@ -4,10 +4,8 @@ distance = (a, b) => { // stolen from stack overflow
   const r = 0.5 - c((b.latitude - a.latitude) * p) / 2 +
     c(a.latitude * p) * c(b.latitude * p) *
     (1 - c((b.longitude - a.longitude) * p)) / 2;
-
   return 12742000 * Math.asin(Math.sqrt(r)); // 2 * r; r = 6371 km
 }
-
 format = (x, units) => {
   let correct = units[0];
   let index = units.length;

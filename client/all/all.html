@@ -1,0 +1,21 @@
+<template name='all'>
+  <section class='all'>
+    {{> toolbar left='toolbarLoading' title='All Posts' right='toolbarCreate'}}
+    <ul>
+      {{#momentum plugin='height'}}
+        {{#each posts}}
+          {{> post}}
+        {{/each}}
+      {{/momentum}}
+    </ul>
+  </section>
+</template>
+
+<template name='post'>
+  <li class='post'>
+    <div class='container'>
+      <p class='content'>{{content}}</p>
+      <p class='metadata'>{{> tag user=user hue=hue}} <span class='distance-time'>{{distance}} - {{livestamp time}}</span></p>
+    </div>
+  </li>
+</template>
