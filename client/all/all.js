@@ -1,6 +1,9 @@
+import * as utilities from '/both/utilities';
+import * as constants from '/both/constants';
+
 Template.all.helpers({
   posts: () => {
-    return Posts.find({}, {
+    return constants.Posts.find({}, {
       sort: {date: -1}
     });
   }
@@ -20,13 +23,13 @@ Template.post.events({
 Template.post.helpers({
   distance: function () {
     const position = JSON.parse(Session.get('position'));
-    return format(distance({
+    return utilities.format(utilities.distance({
         longitude: this.location.coordinates[0],
         latitude: this.location.coordinates[1]
       }, {
         longitude: position.longitude,
         latitude: position.latitude
-      }), UNITS.distance);
+      }), constants.UNITS.distance);
   },
   time: function () {
     return this.date;

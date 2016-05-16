@@ -1,3 +1,5 @@
+import * as constants from '/both/constants';
+
 Router.route('/', function () {
   this.render('all')
 });
@@ -7,7 +9,7 @@ Router.route('/new', function () {
 Router.route('/post/:id', function () {
   this.render('view', {
     data: function () {
-      return Posts.findOne({id: this.params.id});
+      return constants.Posts.findOne({id: this.params.id});
     }
   });
 });

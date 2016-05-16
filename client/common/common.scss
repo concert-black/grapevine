@@ -1,0 +1,63 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100);
+
+$purple: hsl(280, 24%, 50%);
+$brown: hsl(16, 25%, 38%);
+$animation-duration: 512ms;
+
+* {
+	box-sizing: border-box;
+	user-select: none;
+	overflow: hidden;
+	-webkit-tap-highlight-color: hsla(0, 0, 0, 0);
+}
+html, body {
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	font-family: 'Roboto';
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  textarea {
+    font-size: 16px !important;
+  }
+}
+textarea {
+	user-select: text;
+	padding: 0 !important;
+}
+main {
+	padding: 18px;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+section {
+	flex-direction: column;
+	display: flex;
+	height: 100%;
+}
+.materialize-textarea:focus {
+  border-bottom: 1px solid $brown !important;
+  box-shadow: 0 1px 0 0 $brown !important;
+}
+.button {
+	cursor: pointer;
+}
+.hidden {
+	pointer-events: none;
+	opacity: 0;
+}
+.content {
+	user-select: text;
+	word-break: break-word;
+	hyphens: auto;
+	margin: 0;
+}
+.tag {
+	color: white;
+	padding: 4px;
+	border-radius: 4px;
+	user-select: text;
+	transition: opacity $animation-duration;
+}

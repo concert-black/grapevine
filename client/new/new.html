@@ -1,10 +1,9 @@
 <template name='new'>
   <section class='new'>
-    {{> toolbar left='toolbarBack' title='New Post' right='toolbarConfirm'}}
+    {{> toolbar left='toolbarBack' title='New Post' right='toolbarConfirm' canConfirm=canConfirm}}
     <main>
       <textarea class='materialize-textarea post-input' placeholder='New post'>{{draft}}</textarea>
       <p class='remaining {{#if negative}}negative{{/if}}'>{{remaining}}</p>
-      {{canConfirm}}
     </main>
   </section>
 </template>

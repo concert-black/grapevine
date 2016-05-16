@@ -1,4 +1,6 @@
-distance = (a, b) => { // stolen from stack overflow
+import * as constants from '/both/constants';
+
+export function distance (a, b) { // stolen from stack overflow
   const p = 0.017453292519943295; // Math.PI / 180
   const c = Math.cos;
   const r = 0.5 - c((b.latitude - a.latitude) * p) / 2 +
@@ -6,7 +8,7 @@ distance = (a, b) => { // stolen from stack overflow
     (1 - c((b.longitude - a.longitude) * p)) / 2;
   return 12742000 * Math.asin(Math.sqrt(r)); // 2 * r; r = 6371 km
 }
-format = (x, units) => {
+export function format (x, units) {
   let correct = units[0];
   let index = units.length;
   while (index--) {
@@ -16,4 +18,11 @@ format = (x, units) => {
     }
   }
   return Math.round(x / correct.value) + correct.name;
+}
+export function checkPost (content) {
+  const length = Match.Where((string) => {
+    check(string, String);
+    return 0 < string.length && string.length <= constants.POST_CHARACTER_LIMIT;
+  });
+  return Match.test(content, length);
 }

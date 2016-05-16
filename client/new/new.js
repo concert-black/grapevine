@@ -1,14 +1,18 @@
+import * as constants from '/both/constants';
+import * as utilities from '/both/utilities';
+
 Template.new.helpers({
+  canConfirm: () => {
+    return utilities.checkPost(Session.get('draft'));
+  },
   draft: () => {
     return Session.get('draft');
   },
   remaining: () => {
-    const remaining = Session.get('remaining');
-    if (remaining === undefined) return POST_CHARACTER_LIMIT;
-    return remaining;
+    return constants.POST_CHARACTER_LIMIT - Session.get('draft').length ;
   },
   negative: () => {
-    return Session.get('remaining') < 0;
+    return Session.get('draft') < 0;
   }
 });
 Template.new.events({
@@ -18,13 +22,19 @@ Template.new.events({
   },
   'click .toolbarConfirm': (event) => {
     event.preventDefault();
-    if (! checkPost(Session.get('draft'))) {
-      alert('post check error');
+    const position = JSON.parse(Session.get('position'));
+    const post = $('.post-input').val();
+    if (post.length === 0) {
+      return;
+    } else if (! utilities.checkPost(post)) {
+      alert('Invalid post.');
+      return;
+    } else if (! position) {
+      alert('Geolocation error.');
       return;
     }
-    Meteor.call('posts.insert', $('.post-input').val(), JSON.parse(Session.get('position')));
+    Meteor.call('posts.insert', post, position);
     Session.set('draft', '');
-    Session.set('remaining', POST_CHARACTER_LIMIT);
     Router.go('/');
   },
   'keydown .post-input': (event) => {
@@ -36,7 +46,6 @@ Template.new.events({
   'input .post-input': (event) => {
     const draft = $('.post-input').val();
     Session.set('draft', draft);
-    Session.set('remaining', POST_CHARACTER_LIMIT - draft.length);
   }
 });
 Template.new.onRendered(function () {

@@ -1,6 +1,8 @@
+import * as constants from '/both/constants';
+
 Momentum.registerPlugin('height', () => {
   options = {
-    duration: ANIMATION_DURATION,
+    duration: constants.ANIMATION_DURATION,
     easing: {
       in: [512, 0],
       out: [64, 0]
