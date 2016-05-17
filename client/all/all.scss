@@ -12,35 +12,31 @@ $padding: 18px;
 		-webkit-overflow-scrolling: touch;
 	}
 	li {
-		width: 100%;
-		display: block;
+		width: calc(100% - #{$padding});
 		overflow: hidden;
-		&:after {
-			content: '';
-			width: calc(100% - #{$padding});
-			height: 1px;
-			left: $padding;
-			background: $gray;
-			position: absolute;
-		}
-	}
-	.container {
-		width: 100%;
+		margin-left: $padding;
+		padding-right: $padding;
+		border-bottom: 1px solid $gray;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: none;
-		> * {
-			margin: 18px;
-		}
+	}
+	.content {
+		flex-grow: 1;
+		margin: $padding;
 	}
 	.metadata {
-		text-align: right;
 		overflow: visible;
 		color: $gray;
 		flex-shrink: 0;
 	}
-	.distance-time {
-		margin-left: $padding;
+	.distance {
+		width: 48px;
+	}
+	.time {
+		width: 32px;
+	}
+	.align-right {
+		text-align: right;
 	}
 }

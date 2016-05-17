@@ -1,5 +1,5 @@
 export const MAX_DISTANCE = 8047;
-export const ANIMATION_DURATION = 512;
+export const ANIMATION_DURATION = 512; // also in /client/common/common.scss
 export const POST_CHARACTER_LIMIT = 140;
 export const POST_LIFE = 86400;
 export const SALT = 'halite';

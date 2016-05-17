@@ -3,16 +3,12 @@ import * as constants from '/both/constants';
 Momentum.registerPlugin('height', () => {
   options = {
     duration: constants.ANIMATION_DURATION,
-    easing: {
-      in: [512, 0],
-      out: [64, 0]
-    }
+    easing: 'ease-out'
   };
   return {
     insertElement: (node, next, done) => {
-      $(node)
-        .insertBefore(next);
-      let height = $(node).height();
+      $(node).insertBefore(next);
+      const height = $(node).height();
       $(node)
         .css({'height': 0, 'opacity': 0})
         .velocity({
@@ -28,7 +24,7 @@ Momentum.registerPlugin('height', () => {
         });
     },
     moveElement: (node, next, done) => {
-      let self = this;
+      const self = this;
       self.removeElement(node, () => {
         self.insertElement(node, next, done);
       });
@@ -47,5 +43,5 @@ Momentum.registerPlugin('height', () => {
           }
         });
     }
-  }
+  };
 });

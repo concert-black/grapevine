@@ -14,9 +14,8 @@
 
 <template name='post'>
   <li class='post'>
-    <div class='container'>
-      <p class='content'>{{content}}</p>
-      <p class='metadata'><span class='distance-time'>{{distance}} - {{livestamp time}}</span></p>
-    </div>
+    <p class='metadata distance'>{{distance}}</p>
+    <p class='content'>{{content}}</p>
+    <p class='metadata time'><span class='right'>{{livestamp time}}</span></p>
   </li>
 </template>
