@@ -14,5 +14,5 @@ export const UNITS = {
       value: 804.67
     }
   ]
-}
+};
 export const Posts = new Mongo.Collection('posts');

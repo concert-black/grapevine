@@ -1,10 +1,10 @@
 import * as constants from '/both/constants';
 
 Router.route('/', function () {
-  this.render('all')
+  this.render('all');
 });
 Router.route('/new', function () {
-  this.render('new')
+  this.render('new');
 });
 Router.route('/post/:id', function () {
   this.render('view', {
