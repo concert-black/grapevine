@@ -1,42 +1,59 @@
 @import '{}/client/common/common.scss';
 
-$padding: 18px;
-.all {
+.template-all {
 	ul {
 		list-style-type: none;
 		width: 100%;
 		height: 100%;
 		margin: 0;
 		padding: 0;
-		overflow: scroll;
-		-webkit-overflow-scrolling: touch;
-	}
-	li {
-		width: calc(100% - #{$padding});
-		overflow: hidden;
-		margin-left: $padding;
-		padding-right: $padding;
-		border-bottom: 1px solid $gray;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	.content {
-		flex-grow: 1;
-		margin: $padding;
-	}
-	.metadata {
-		overflow: visible;
-		color: $gray;
-		flex-shrink: 0;
-	}
-	.distance {
-		width: 48px;
-	}
-	.time {
-		width: 32px;
-	}
-	.align-right {
-		text-align: right;
+		li {
+			@media only screen and (max-width: 448px) {
+				flex-wrap: wrap;
+				align-items: flex-start;
+				.content {
+					order: 1;
+					width: 100%;
+					margin-top: 0;
+				}
+				.short-distance {
+					order: 2;
+					margin: 0;
+				}
+				.short-time {
+					order: 3;
+					margin: 0;
+				}
+			}
+			@media only screen and (min-width: 448px) {
+				flex-wrap: nowrap;
+				align-items: center;
+				@include flex-padding-row($padding);
+				.short-distance {
+					flex-order: 1;
+				}
+				.content {
+					flex-grow: 1;
+					order: 2;
+				}
+				.short-time {
+					order: 3
+				}
+			}
+			margin-left: $padding;
+			padding: $padding;
+			padding-left: 0;
+
+			width: calc(100% - #{$padding});
+			overflow: hidden;
+
+			&:not(:last-child), &:only-child {
+				border-bottom: 1px solid $gray;
+			}
+
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 	}
 }

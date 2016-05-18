@@ -1,0 +1,9 @@
+<template name='input'>
+	<div class='template-input'>
+		<textarea class='materialize-textarea post-input' placeholder='{{placeholder}}'></textarea>
+		<div class='bottom-row margarined'>
+			<p class='remaining gray {{#if negative}}negative{{/if}}'>{{remaining}}</p>
+			<a target='_blank' class='post-button btn' href='javascript: void(0)'>post</a>
+		</div>
+	</div>
+</template>

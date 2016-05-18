@@ -9,7 +9,7 @@ Template.all.helpers({
   }
 });
 Template.all.events({
-  'click .toolbarCreate': (event) => {
+  'click .template-toolbarCreate': (event) => {
     event.preventDefault();
     Router.go('/new');
   }

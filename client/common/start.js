@@ -1,3 +1,5 @@
+import * as constants from '/both/constants';
+
 Session.set('draft', '');
 Session.set('locating', true);
 if ('geolocation' in navigator) {
@@ -17,7 +19,7 @@ if ('geolocation' in navigator) {
       alert('We could not determine your location.');
     }
   }, {
-    timeout: 8192,
+    timeout: constants.LOCATION_TIMEOUT,
     enableHighAccuracy: false
   });
 } else {

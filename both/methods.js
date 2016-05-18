@@ -10,10 +10,25 @@ Meteor.methods({
       'content': content,
       'date': new Date(),
       'id': Meteor.uuid(),
+      'comments': [],
       'location': {
         'type': 'Point',
         'coordinates': [position.longitude, position.latitude]
       }
     });
+  },
+  'posts.comment' (content, post) {
+    if (! utilities.checkComment(content)) {
+      return;
+    }
+    constants.Posts.update({
+      'id': post
+    }, {$push: {
+      'comments': {
+        'date': new Date(),
+        'id': Meteor.uuid(),
+        'content': content
+      }
+    }});
   }
 });

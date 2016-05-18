@@ -1,11 +1,19 @@
 <template name='view'>
-  {{> head}}
-  <section class='view'>
+  <section class='template-view'>
+    {{> head}}
     {{> toolbar left='toolbarBack' title='Post' right='toolbarNone'}}
-    <main>
-      <p class='content'>{{content}}</p>
-      <p class='metadata'>{{time}}</p>
-      <textarea class='materialize-textarea post-input' placeholder='New comment'></textarea>
+    <main class='scroll'>
+      <div class='padded post'>
+        <p class='content'>{{content}}</p>
+        <div class='details'>
+          <p class='metadata'>Posted at {{time}}, {{distance}} away</p>
+          <a target='_blank' class='location-button btn' href='{{location}}'>view location</a>
+        </div>
+      </div>
+      <hr>
+      <div class='padded'>
+        {{> input placeholder='New comment'}}
+      </div>
     </main>
   </section>
 </template>

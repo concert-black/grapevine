@@ -1,0 +1,18 @@
+@import '{}/client/common/common.scss';
+// todo: flexboxificate 
+.template-input {
+	.remaining {
+		margin: 0;
+		font-size: 12px;
+	}
+	.negative {
+		font-weight: bold;
+		color: darkred;
+	}
+	.bottom-row {
+		justify-content: flex-end;
+		align-items: center;
+		display: flex;
+		@include flex-padding-row($padding);
+	}
+}

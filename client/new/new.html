@@ -1,10 +1,10 @@
 <template name='new'>
-  {{> head}}
-  <section class='new'>
-    {{> toolbar left='toolbarBack' title='New Post' right='toolbarConfirm' canConfirm=canConfirm}}
-    <main>
-      <textarea class='materialize-textarea post-input' placeholder='New post'>{{draft}}</textarea>
-      <p class='remaining {{#if negative}}negative{{/if}}'>{{remaining}}</p>
+  <section class='template-new'>
+    {{> head}}
+    {{> toolbar left='toolbarBack' title='New Post' right='toolbarNone'}}
+    <main class='scroll padded'>
+      {{> input placeholder='New post'}}
+      <hr class='margarined'>
     </main>
   </section>
 </template>

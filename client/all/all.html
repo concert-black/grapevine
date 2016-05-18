@@ -1,21 +1,19 @@
 <template name='all'>
-  {{> head}}
-  <section class='all'>
-    {{> toolbar left='toolbarLoading' title='All Posts' right='toolbarCreate'}}
-    <ul>
-      {{#momentum plugin='height'}}
-        {{#each posts}}
-          {{> post}}
-        {{/each}}
-      {{/momentum}}
+  <section class='template-all'>
+    {{> head}}
+    {{> toolbar left='toolbarNone' title='All Posts' right='toolbarCreate'}}
+    <ul class='scroll'>
+      {{#each posts}}
+        {{> post}}
+      {{/each}}
     </ul>
   </section>
 </template>
 
 <template name='post'>
   <li class='post'>
-    <p class='metadata distance'>{{distance}}</p>
+    <p class='gray short-distance no-shrink'>{{distance}}</p>
     <p class='content'>{{content}}</p>
-    <p class='metadata time'><span class='right'>{{livestamp time}}</span></p>
+    <p class='gray short-time no-shrink'><span class='right'>{{livestamp time}}</span></p>
   </li>
 </template>

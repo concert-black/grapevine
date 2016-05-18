@@ -1,13 +1,27 @@
 @import '{}/client/common/common.scss';
 
-.view {
+.template-view {
 	.content {
-		font-size: 36px;
-		margin-bottom: 18px;
-		font-weight: 100;
+		margin: 0;
+		font-size: 20px;
+	}
+	.post {
+		display: flex;
+		flex-direction: column;
+		@include flex-padding-column($padding);
+	}
+	.details {
+		display: flex;
+		align-items: center;
+		@include flex-padding-row($padding);
 	}
 	.metadata {
+		flex-grow: 1;
 		overflow: visible;
 		user-select: text;
+	}
+	.location-button {
+		flex-shrink: 0;
+		text-align: right;
 	}
 }

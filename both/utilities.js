@@ -8,7 +8,7 @@ export function distance (a, b) { // stolen from stack overflow
     (1 - c((b.longitude - a.longitude) * p)) / 2;
   return 12742000 * Math.asin(Math.sqrt(r)); // 2 * r; r = 6371 km
 }
-export function format (x, units) {
+export function format (x, units, long) {
   let correct = units[0];
   let index = units.length;
   while (index--) {
@@ -17,7 +17,7 @@ export function format (x, units) {
       break;
     }
   }
-  return Math.round(x / correct.value) + correct.name;
+  return Math.round(x / correct.value) + (long ? ' ' + correct.long : correct.short);
 }
 export function checkPost (content) {
   const length = Match.Where((string) => {
@@ -26,3 +26,4 @@ export function checkPost (content) {
   });
   return Match.test(content, length);
 }
+export const checkComment= checkPost;

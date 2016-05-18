@@ -18,7 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 fourseven:scss
 seba:minifiers-autoprefixer
 ejson
-percolate:momentum
 iron:router
 materialize:materialize
 check
@@ -30,3 +29,4 @@ thepumpinglemma:chance
 ccorcos:transitioner
 meteorhacks:kadira
 fastclick
+reactive-var
