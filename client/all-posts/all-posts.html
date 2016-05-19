@@ -1,9 +1,32 @@
 <template name='all-posts'>
   <section class='template-all-posts page'>
-    {{> head}}
-    {{> toolbar left='toolbarNone' title='All Posts' right='toolbarCreate'}}
+    {{> toolbar left='toolbarNone' title='All Posts' right='toolbarNone'}}
     <section class='scroll'>
-      {{> list items=posts left='distance' center='content' right='date'}}
+      <section class='padded'>
+        {{> input placeholder='New post'}}
+      </section>
+      <hr>
+      <section class='posts'>
+        <ul class='list post-list'>
+          {{#if empty}}
+            <div class='empty padded'>
+              <p>No posts yet.<br>¯\_(ツ)_/¯</p>
+            </div>
+          {{else}}
+            {{#each posts}}
+              {{> post}}
+            {{/each}}
+          {{/if}}
+        </ul>
+      </section>
     </section>
   </section>
+</template>
+
+<template name='post'>
+  <li class='template-post'>
+    <p class='distance gray'>{{distance}}</p>
+    <p class='content'>{{content}}</p>
+    <p class='age gray'>{{livestamp date}}</p>
+  </li>
 </template>

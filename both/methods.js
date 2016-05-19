@@ -17,8 +17,8 @@ Meteor.methods({
       }
     });
   },
-  'posts.comment' (content, post) {
-    if (! utilities.checkComment(content)) {
+  'posts.comment' (comment, post) {
+    if (! utilities.checkComment(comment)) {
       return;
     }
     constants.Posts.update({
@@ -27,7 +27,7 @@ Meteor.methods({
       'comments': {
         'date': new Date(),
         'id': Meteor.uuid(),
-        'content': content
+        'content': comment
       }
     }});
   }

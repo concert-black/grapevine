@@ -1,6 +1,13 @@
 @import '{}/client/common/common.scss';
-// todo: flexboxificate 
+// todo: flexboxificate
 .template-input {
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	@include flex-padding-column($padding);
+	.post-input {
+		// height: auto !important;
+	}
 	.remaining {
 		margin: 0;
 		font-size: 12px;

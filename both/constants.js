@@ -1,7 +1,7 @@
 export const MAX_DISTANCE = 8047;
 export const POST_CHARACTER_LIMIT = 160;
 export const POST_LIFE = 86400;
-export const LOCATION_TIMEOUT = 16384;
+export const LOCATION_TIMEOUT = 32768;
 export const UNITS = {
   distance: [
     {

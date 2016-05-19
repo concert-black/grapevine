@@ -1,12 +1,14 @@
 import * as constants from '/both/constants';
+import * as utilities from '/both/utilities';
 
 Template.input.onCreated(function(){
   this.value = new ReactiveVar('');
 });
 
 Template.input.helpers({
-  canConfirm: () => {
-    return utilities.checkPost(this.value);
+  canPost: () => {
+    const value = Template.instance().value.get();
+    return utilities.checkPost(value);
   },
   remaining: () => {
 		const value = Template.instance().value.get();
@@ -19,7 +21,7 @@ Template.input.helpers({
 });
 
 Template.input.events({
-  'input .post-input': (event, template) => {
-		template.value.set($('.post-input').val());
+  'input .text-input': (event, template) => {
+		template.value.set($('.text-input').val());
   }
 });

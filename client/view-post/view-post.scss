@@ -1,14 +1,13 @@
 @import '{}/client/common/common.scss';
 
 .template-view-post {
-	.content {
+	.empty {
+		font-size: 20px;
+		text-align: center;
+	}
+	.post-content {
 		margin: 0;
 		font-size: 20px;
-	}
-	.post {
-		display: flex;
-		flex-direction: column;
-		@include flex-padding-column($padding);
 	}
 	.details {
 		display: flex;
@@ -23,5 +22,28 @@
 	.location-button {
 		flex-shrink: 0;
 		text-align: right;
+	}
+	.comment-list {
+		li {
+			@media only screen and (max-width: 448px) {
+				flex-wrap: wrap;
+				align-items: flex-start;
+				.content { // left
+					width: 100%;
+					margin-top: 0;
+				}
+				.age {
+					margin: 0;
+				}
+			}
+			@media only screen and (min-width: 448px) {
+				flex-wrap: nowrap;
+				align-items: center;
+				@include flex-padding-row($padding);
+				.content {
+					flex: 1 1 auto;
+				}
+			}
+		}
 	}
 }

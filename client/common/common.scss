@@ -3,30 +3,34 @@
 // constants
 $purple: hsl(280, 24%, 50%);
 $brown: hsl(16, 25%, 38%);
-$gray: #9e9e9e;
+$gray: hsl(0, 0%, 62%);
 $animation-duration: 0;
 $padding: 18px;
+$font-size: 14px;
+$min-width: 128px;
 
 // mixins that are I guess useful
 @mixin flex-padding-row($padding) {
   > * {
-		margin: 0 #{$padding / 2} 0 #{$padding / 2};
+    flex: none;
+		margin: 0 #{$padding / 2} 0 #{$padding / 2} !important;
 		&:first-child {
-			margin-left: 0;
+			margin-left: 0 !important;
 		}
 		&:last-child {
-			margin-right: 0;
+			margin-right: 0 !important;
 		}
 	}
 }
 @mixin flex-padding-column($padding) {
 	> * {
-		margin: #{$padding / 2} 0 #{$padding / 2} 0;
+    flex: none;
+		margin: #{$padding / 2} 0 #{$padding / 2} 0 !important;
 		&:first-child {
-			margin-top: 0;
+			margin-top: 0 !important;
 		}
 		&:last-child {
-			margin-bottom: 0;
+			margin-bottom: 0 !important;
 		}
 	}
 }
@@ -34,7 +38,7 @@ $padding: 18px;
 // some broad definitions
 * {
 	transition: none !important; // fuck animations
-	overflow: visible;
+	// overflow: visible;
 	box-sizing: border-box;
 	user-select: none;
 	-webkit-tap-highlight-color: hsla(0, 0, 0, 0);
@@ -46,6 +50,7 @@ html, body {
 	overflow: hidden;
 	font-size: 14px;
 	position: fixed;
+  min-width: $min-width;
 }
 body {
 	font-family: 'Lato';
@@ -60,7 +65,7 @@ textarea {
   border-bottom: 1px solid $brown !important;
   box-shadow: 0 1px 0 0 $brown !important;
 }
-page {
+.page {
 	flex-direction: column;
 	display: flex;
 	height: 100%;
@@ -113,12 +118,6 @@ hr {
 .gray {
 	color: $gray;
 }
-.no-grow {
-	flex-grow: 0;
-}
-.no-shrink {
-	flex-shrink: 0;
-}
 
 // this shit doesn't belong here
 .logo-g {
@@ -130,4 +129,25 @@ hr {
   to {
     stroke-dashoffset: 0;
   }
+}
+
+.list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	li {
+		margin-left: $padding;
+		padding: $padding;
+		padding-left: 0;
+		width: calc(100% - #{$padding});
+		overflow: hidden;
+
+		&:not(:last-child), &:only-child {
+			border-bottom: 1px solid $gray;
+		}
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
 }
