@@ -1,0 +1,57 @@
+@import '{}/client/common/common.scss';
+
+.template-list {
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		li {
+			@media only screen and (max-width: 448px) {
+				flex-wrap: wrap;
+				align-items: flex-start;
+				.item-center {
+					order: 1;
+					width: 100%;
+					margin-top: 0;
+				}
+				.item-left {
+					order: 2;
+					margin: 0;
+				}
+				.item-right {
+					order: 3;
+					margin: 0;
+				}
+			}
+			@media only screen and (min-width: 448px) {
+				flex-wrap: nowrap;
+				align-items: center;
+				@include flex-padding-row($padding);
+				.item-left {
+					flex-order: 1;
+				}
+				.item-center {
+					flex-grow: 1;
+					order: 2;
+				}
+				.item-right {
+					order: 3
+				}
+			}
+			margin-left: $padding;
+			padding: $padding;
+			padding-left: 0;
+
+			width: calc(100% - #{$padding});
+			overflow: hidden;
+
+			&:not(:last-child), &:only-child {
+				border-bottom: 1px solid $gray;
+			}
+
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+	}
+}

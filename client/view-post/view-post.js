@@ -1,7 +1,7 @@
 import * as constants from '/both/constants';
 import * as utilities from '/both/utilities';
 
-Template.view.helpers({
+Template['view-post'].helpers({
   post: () => {
     const controller = UI.controller();
     return Posts.find({_id: controller.get('id')});
@@ -24,7 +24,7 @@ Template.view.helpers({
     return `https://www.google.com/maps?q=${position.latitude},${position.longitude}`;
   }
 });
-Template.view.events({
+Template['view-post'].events({
   'click .template-toolbarBack': (event) => {
     event.preventDefault();
     Router.go('/');

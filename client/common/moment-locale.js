@@ -1,4 +1,4 @@
-moment.updateLocale('en', {
+moment.updateLocale('en', { // for short live stamps
   relativeTime: {
     future: 'in %s',
     past: '%s',

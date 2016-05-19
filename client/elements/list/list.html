@@ -1,0 +1,28 @@
+<template name='list'>
+	<section class='template-list'>
+		<ul>
+			{{#each items}}
+				{{> item}}
+      {{/each}}
+		</ul>
+	</section>
+</template>
+
+<template name='item'>
+	<li class='template-item'>
+		<p class='item-left'>{{> Template.dynamic template=../left}}</p>
+		<p class='item-center'>{{> Template.dynamic template=../center}}</p>
+		<p class='item-right'>{{> Template.dynamic template=../right}}</p>
+	</li>
+</template>
+<template name='content'>
+	<span class='template-content'>{{content}}</span>
+</template>
+
+<template name='distance'>
+	<span class='template-distance gray'>{{distance}}</span>
+</template>
+
+<template name='date'>
+	<span class='template-date gray'>{{livestamp date}}</span>
+</template>

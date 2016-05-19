@@ -1,0 +1,9 @@
+<template name='all-posts'>
+  <section class='template-all-posts page'>
+    {{> head}}
+    {{> toolbar left='toolbarNone' title='All Posts' right='toolbarCreate'}}
+    <section class='scroll'>
+      {{> list items=posts left='distance' center='content' right='date'}}
+    </section>
+  </section>
+</template>
