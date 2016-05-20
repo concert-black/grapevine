@@ -15,7 +15,7 @@
 		@include flex-padding-row($padding);
 	}
 	.metadata {
-		flex-grow: 1;
+		flex: 1 1 auto;
 		overflow: visible;
 		user-select: text;
 	}

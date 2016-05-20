@@ -11,15 +11,19 @@
 				flex-wrap: wrap;
 				align-items: flex-start;
 				.distance { // left
-					margin-top: 0;
+					margin-top: #{$padding / 2};
+					margin-bottom: 0;
 					order: 2;
 				}
 				.content {
+					margin-top: 0;
+					margin-bottom: #{$padding / 2};
 					width: 100%;
 					order: 1;
 				}
 				.age {
-					margin: 0;
+					margin-top: #{$padding / 2};
+					margin-bottom: 0;
 					order: 3;
 				}
 			}
