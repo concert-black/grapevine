@@ -22,6 +22,10 @@ Template.input.helpers({
 
 Template.input.events({
   'input .text-input': (event, template) => {
+    console.log($('.text-input').val());
 		template.value.set($('.text-input').val());
   }
+});
+Template.input.onRendered(() => {
+  $('.text-input').focus();
 });

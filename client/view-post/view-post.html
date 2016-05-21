@@ -1,5 +1,6 @@
 <template name='view-post'>
   <section class='template-view-post'>
+    {{> overlay}}
     {{> toolbar left='toolbarBack' title='Post' right='toolbarNone'}}
     <main class='scroll'>
       <div class='padded post'>
@@ -14,7 +15,7 @@
         {{> input placeholder='New comment'}}
       </div>
       <hr>
-      <section class='comments'>
+      <div class='comments'>
         <ul class='list comment-list'>
           {{#if empty}}
             <div class='empty padded'>
@@ -26,7 +27,7 @@
             {{/each}}
           {{/if}}
     		</ul>
-      </section>
+      </div>
     </main>
   </section>
 </template>

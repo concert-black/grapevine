@@ -1,12 +1,13 @@
 <template name='all-posts'>
   <section class='template-all-posts page'>
+    {{> overlay}}
     {{> toolbar left='toolbarNone' title='All Posts' right='toolbarNone'}}
-    <section class='scroll'>
-      <section class='padded'>
+    <div class='scroll'>
+      <div class='padded'>
         {{> input placeholder='New post'}}
-      </section>
+      </div>
       <hr>
-      <section class='posts'>
+      <div class='posts'>
         <ul class='list post-list'>
           {{#if empty}}
             <div class='empty padded'>
@@ -18,8 +19,8 @@
             {{/each}}
           {{/if}}
         </ul>
-      </section>
-    </section>
+      </div>
+    </div>
   </section>
 </template>
 

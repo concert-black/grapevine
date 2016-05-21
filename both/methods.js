@@ -6,7 +6,7 @@ Meteor.methods({
     if (! utilities.checkPost(content)) {
       return;
     }
-    constants.Posts.insert({
+    constants.posts.insert({
       'content': content,
       'date': new Date(),
       'id': Meteor.uuid(),
@@ -21,7 +21,7 @@ Meteor.methods({
     if (! utilities.checkComment(comment)) {
       return;
     }
-    constants.Posts.update({
+    constants.posts.update({
       'id': post
     }, {$push: {
       'comments': {

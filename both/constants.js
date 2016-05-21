@@ -1,7 +1,8 @@
-export const MAX_DISTANCE = 8047;
-export const POST_CHARACTER_LIMIT = 160;
-export const POST_LIFE = 86400;
-export const LOCATION_TIMEOUT = 32768;
+export const MAX_DISTANCE = 8047; // meters
+export const POST_CHARACTER_LIMIT = 160; // characters
+export const POST_LIFE = 86400; // seconds
+export const LOCATION_TIMEOUT = 16384; // milliseconds
+export const RECONNECT_FREQUENCY = 1024; // milliseconds
 export const UNITS = {
   distance: [
     {
@@ -16,4 +17,4 @@ export const UNITS = {
     }
   ]
 };
-export const Posts = new Mongo.Collection('posts');
+export const posts = new Mongo.Collection('posts');

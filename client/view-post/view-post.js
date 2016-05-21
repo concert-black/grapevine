@@ -4,12 +4,16 @@ import * as utilities from '/both/utilities';
 function triggerComment (id) {
   const post = id;
   const comment = $('.text-input').val();
+  if (comment.length === 0) {
+    return; // fail silently if comment is empty
+  }
   if (! utilities.checkPost(comment)) {
     alert('Invalid comment.');
     return;
   }
   Meteor.call('posts.comment', comment, post);
   $('.text-input').val('');
+  $('.text-input').trigger('input'); // make sure value gets reset
 }
 
 Template['view-post'].helpers({
@@ -36,7 +40,7 @@ Template['view-post'].helpers({
   },
   location: function() {
     const position = JSON.parse(Session.get('position'));
-    return `https://www.google.com/maps?q=${position.latitude},${position.longitude}`;
+    return `https://www.google.com/maps/search/${position.latitude},${position.longitude}`;
   }
 });
 Template['view-post'].events({
@@ -45,8 +49,8 @@ Template['view-post'].events({
     Router.go('/');
   },
   'click .post-button': (event, template) => {
-    triggerComment(template.data.id);
     event.preventDefault();
+    triggerComment(template.data.id);
   },
   'keydown .text-input': (event, template) => {
     if (event.which === 13) {

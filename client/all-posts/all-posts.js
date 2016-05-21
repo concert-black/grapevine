@@ -4,6 +4,9 @@ import * as constants from '/both/constants';
 function triggerPost () {
   const post = $('.text-input').val();
   const position = JSON.parse(Session.get('position'));
+  if (post.length === 0) {
+    return; // fail silently if post is empty
+  }
   if (! utilities.checkPost(post)) {
     alert('Invalid post.');
     return;
@@ -17,16 +20,16 @@ function triggerPost () {
 
 Template['all-posts'].helpers({
   posts: () => {
-    return constants.Posts.find({}, {
+    return constants.posts.find({}, {
       sort: {date: -1}
     });
   },
   empty: () => {
-    return constants.Posts.find().count() === 0;
+    return constants.posts.find().count() === 0;
   }
 });
 Template['all-posts'].events({
-  'click .text-button': (event) => {
+  'click .post-button': (event) => {
     event.preventDefault();
     triggerPost();
   },

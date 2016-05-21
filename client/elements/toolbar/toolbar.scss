@@ -28,27 +28,4 @@
 		text-overflow: ellipsis;
 		flex-shrink: 1;
 	}
-	.toolbarLoading {
-		transition: opacity $animation-duration;
-		$border-width: 2px;
-		$border-color: white;
-		height: $inner-height - (2 * $border-width);
-		width: $inner-height - (2 * $border-width);
-		margin: ($height - $inner-height) / 2;
-		padding: 0;
-		border-radius: 50%;
-		border: $border-width solid;
-		border-color: $border-color $border-color $border-color transparent;
-		animation: spin 2 * $animation-duration linear infinite;
-		@keyframes spin {
-			from {
-				transform: rotate(0);
-			} to {
-				transform: rotate(1turn);
-			}
-		}
-	}
-	.toolbarConfirm {
-		transition: opacity $animation-duration;
-	}
 }

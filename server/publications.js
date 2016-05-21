@@ -1,9 +1,9 @@
 import * as constants from '/both/constants';
 
-constants.Posts._ensureIndex({'location': '2dsphere'});
-constants.Posts._ensureIndex({'date': 1}, {expireAfterSeconds: constants.POST_LIFE});
+constants.posts._ensureIndex({'location': '2dsphere'});
+constants.posts._ensureIndex({'date': 1}, {expireAfterSeconds: constants.POST_LIFE});
 Meteor.publish('posts', (position) => {
-  return constants.Posts.find({
+  return constants.posts.find({
     'location': {
       '$near': {
         '$geometry': {
