@@ -11,7 +11,7 @@ export const UNITS = {
       value: 0.3048
     },
     {
-      short: 'ft',
+      short: 'mi',
       long: 'miles',
       value: 804.67
     }

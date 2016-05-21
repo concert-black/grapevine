@@ -26,4 +26,4 @@ export function checkPost (content) {
   });
   return Match.test(content, length);
 }
-export const checkComment= checkPost;
+export const checkComment = checkPost;

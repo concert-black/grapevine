@@ -39,8 +39,7 @@ Template['view-post'].helpers({
       }), constants.UNITS.distance, true);
   },
   location: function() {
-    const position = JSON.parse(Session.get('position'));
-    return `https://www.google.com/maps/search/${position.latitude},${position.longitude}`;
+    return `https://www.google.com/maps/search/${this.location.coordinates[1]},${this.location.coordinates[0]}`;
   }
 });
 Template['view-post'].events({
