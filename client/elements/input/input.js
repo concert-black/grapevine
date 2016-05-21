@@ -26,6 +26,3 @@ Template.input.events({
 		template.value.set($('.text-input').val());
   }
 });
-Template.input.onRendered(() => {
-  $('.text-input').focus();
-});

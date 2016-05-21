@@ -5,6 +5,12 @@
 		font-size: 20px;
 		text-align: center;
 	}
+	.post {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		@include flex-padding-column($padding);
+	}
 	.post-content {
 		margin: 0;
 		font-size: 20px;

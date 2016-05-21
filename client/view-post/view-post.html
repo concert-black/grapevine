@@ -1,8 +1,8 @@
 <template name='view-post'>
-  <section class='template-view-post'>
+  <section class='template-view-post page'>
     {{> overlay}}
     {{> toolbar left='toolbarBack' title='Post' right='toolbarNone'}}
-    <main class='scroll'>
+    <div class='scroll'>
       <div class='padded post'>
         <p class='post-content content'>{{content}}</p>
         <div class='details'>
@@ -28,7 +28,7 @@
           {{/if}}
     		</ul>
       </div>
-    </main>
+    </div>
   </section>
 </template>
 

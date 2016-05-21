@@ -48,7 +48,7 @@ html, body {
 	width: 100%;
 	overflow: hidden;
 	font-size: 14px;
-	position: fixed;
+	// position: fixed;
   min-width: $min-width;
 }
 body {
@@ -112,9 +112,11 @@ hr {
 	overflow: hidden;
 }
 .content {
-	user-select: text;
 	word-break: break-word;
 	hyphens: auto;
+  &, * {
+    user-select: text;
+  }
 }
 .scroll {
 	overflow: auto;
@@ -135,7 +137,7 @@ hr {
 		width: calc(100% - #{$padding});
 		overflow: hidden;
 
-		&:not(:last-child), &:only-child {
+		&:not(:last-child) {
 			border-bottom: 1px solid $gray;
 		}
 

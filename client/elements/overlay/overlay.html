@@ -9,7 +9,8 @@
   <div class='modal modal-welcome'>
     <div class='modal-content'>
       <h4>Welcome.</h4>
-      <p>It looks like this is your first time on Grapevine. We'll need your location to fetch nearby posts.</p>
+      <p class='content'>It looks like this is your first time on Grapevine. If you're running a mobile operating system, click <a href='http://lmgtfy.com/?q=how+to+add+a+website+to+my+homescreen' target='_blank'>here</a> to learn how to add Grapevine to your homescreen.</p>
+      <p class='content'>We'll need access to your location to fetch nearby posts.</p>
     </div>
     <div class='modal-footer'>
       <a href='javascript: void(0)' class='modal-action modal-close btn-flat'>Fine, whatever</a>
@@ -21,10 +22,10 @@
 </template>
 
 <template name='error'>
-	<div class='template-erorr modal {{name}}'>
+	<div class='template-error modal {{name}}'>
 		<div class="modal-content">
 	    <h4>{{header}}</h4>
-	    <p>{{content}}</p>
+	    <p class='content'>{{content}}</p>
     </div>
     <div class='modal-footer'>
       <a href='javascript: void(0)' onClick='window.location.reload()' class='btn-flat'>Try Again</a>
