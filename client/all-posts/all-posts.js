@@ -18,7 +18,7 @@ function triggerPost () {
   $('.text-input').val('');
 }
 
-Template['all-posts'].helpers({
+Template.allPosts.helpers({
   posts: () => {
     return constants.posts.find({}, {
       sort: {date: -1}
@@ -28,7 +28,7 @@ Template['all-posts'].helpers({
     return constants.posts.find().count() === 0;
   }
 });
-Template['all-posts'].events({
+Template.allPosts.events({
   'click .post-button': (event) => {
     event.preventDefault();
     triggerPost();
@@ -54,5 +54,22 @@ Template.post.helpers({
         longitude: position.longitude,
         latitude: position.latitude
       }), constants.UNITS.distance, false);
+  },
+  commentCount: function () {
+    return this.comments.length;
+  }
+});
+Template.commentCounter.helpers({
+  color: function() {
+    if (Template.currentData().count < 4) {
+      return 'gray';
+    } else if (Template.currentData().count < 16) {
+      return 'goldenrod';
+    } else {
+      return 'orangered';
+    }
+  },
+  noComments: function() {
+    return Template.currentData().count === 0;
   }
 });

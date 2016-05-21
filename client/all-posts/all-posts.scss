@@ -7,6 +7,11 @@
 	}
 	.post-list {
 		li {
+			.age-and-comment-counter {
+				display: flex;
+				flex-direction: row;
+				@include flex-padding-row($padding);
+			}
 			@media only screen and (max-width: 448px) {
 				flex-wrap: wrap;
 				align-items: flex-start;
@@ -21,7 +26,7 @@
 					width: 100%;
 					order: 1;
 				}
-				.age {
+				.age-and-comment-counter {
 					margin-top: #{$padding / 2};
 					margin-bottom: 0;
 					order: 3;
@@ -38,10 +43,30 @@
 					flex: 1 1 auto;
 					order: 2;
 				}
-				.age {
+				.age-and-comment-counter {
 					order: 3;
 				}
 			}
+		}
+	}
+	.template-comment-counter {
+		&.gray {
+			color: $gray;
+			fill: $gray;
+		}
+		&.goldenrod {
+			color: goldenrod;
+			fill: goldenrod;
+		}
+		&.orangered {
+			color: orangered;
+			fill: orangered;
+		}
+		.comment-icon {
+			transform: translateY(1px); // svg is too high
+			display: inline-block;
+			width: 12px;
+			height: 12px;
 		}
 	}
 }

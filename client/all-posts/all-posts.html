@@ -1,4 +1,4 @@
-<template name='all-posts'>
+<template name='allPosts'>
   <section class='template-all-posts page'>
     {{> overlay}}
     {{> toolbar left='toolbarNone' title='All Posts' right='toolbarNone'}}
@@ -26,8 +26,17 @@
 
 <template name='post'>
   <li class='template-post'>
-    <p class='distance gray'>{{distance}}</p>
-    <p class='content'>{{content}}</p>
-    <p class='age gray'>{{livestamp date}}</p>
+    <div class='distance gray'>{{distance}}</div>
+    <div class='content'>{{content}}</div>
+    <div class='age-and-comment-counter gray'>{{> commentCounter count=commentCount}} {{livestamp date}}</div>
   </li>
+</template>
+
+<template name='commentCounter'>
+  <span class='template-comment-counter {{#if noComments}}hidden{{/if}} {{color}}'>
+    <span class='comment-count'>{{count}}</span>
+    <svg viewBox="0 0 24 24" class='comment-icon'>
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+    </svg>
+  </span>
 </template>

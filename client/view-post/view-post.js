@@ -16,7 +16,7 @@ function triggerComment (id) {
   $('.text-input').trigger('input'); // make sure value gets reset
 }
 
-Template['view-post'].helpers({
+Template.viewPost.helpers({
   comments: function () {
     return _.sortBy(this.comments, (object) => {
       return -1 * (new Date(object.date));
@@ -42,7 +42,7 @@ Template['view-post'].helpers({
     return `https://www.google.com/maps/search/${this.location.coordinates[1]},${this.location.coordinates[0]}`;
   }
 });
-Template['view-post'].events({
+Template.viewPost.events({
   'click .template-toolbarBack': (event) => {
     event.preventDefault();
     Router.go('/');
