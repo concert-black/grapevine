@@ -1,7 +1,7 @@
 import * as constants from '/both/constants';
 import * as utilities from '/both/utilities';
 
-Template.input.onCreated(function(){
+Template.input.onCreated(function () {
   this.value = new ReactiveVar('');
 });
 
