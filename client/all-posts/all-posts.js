@@ -14,6 +14,8 @@ function triggerPost () {
     alert('Geolocation error.');
     return;
   }
+  position.latitude += (Math.round(Math.random()) ? 1 : -1) * constants.POSITION_VARIABILITY * Math.random();
+  position.longitude += (Math.round(Math.random()) ? 1 : -1) * constants.POSITION_VARIABILITY * Math.random();
   Meteor.call('posts.insert', post, position);
   $('.text-input').val('');
 }
