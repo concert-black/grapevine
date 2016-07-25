@@ -6,7 +6,7 @@ Router.route('/', function () {
 Router.route('/post/:id', function () {
   this.render('viewPost', {
     data: function () {
-      return constants.posts.findOne({id: this.params.id});
+      return constants.POSTS.findOne({id: this.params.id});
     }
   });
 });

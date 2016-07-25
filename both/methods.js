@@ -6,11 +6,12 @@ Meteor.methods({
     if (! utilities.checkPost(content)) {
       return;
     }
-    constants.posts.insert({
+    constants.POSTS.insert({
       'content': content,
       'date': new Date(),
       'id': Meteor.uuid(),
       'comments': [],
+      'commentCount': 0,
       'location': {
         'type': 'Point',
         'coordinates': [position.longitude, position.latitude]
@@ -21,14 +22,19 @@ Meteor.methods({
     if (! utilities.checkComment(comment)) {
       return;
     }
-    constants.posts.update({
+    constants.POSTS.update({
       'id': post
-    }, {$push: {
-      'comments': {
-        'date': new Date(),
-        'id': Meteor.uuid(),
-        'content': comment
+    }, {
+      $push: {
+        'comments': {
+          'date': new Date(),
+          'id': Meteor.uuid(),
+          'content': comment
+        }
+      },
+      $inc: {
+        'commentCount': 1
       }
-    }});
+    });
   }
 });

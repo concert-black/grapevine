@@ -9,8 +9,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	> * {
-		&, & > * {
+	.toolbar-child {
+		&, & * {
 			height: 100%;
 			flex-shrink: 0;
 		}
@@ -29,5 +29,23 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		flex-shrink: 1;
+	}
+	.dropdown-content {
+		li {
+			a {
+				font-size: 14px !important;
+				color: $gray !important;
+				background: none;
+			}
+			&:hover {
+				background: darken(white, 6%) !important;
+			}
+			&.selected {
+				background: none;
+				a {
+					color: $brown !important;
+				}
+			}
+		}
 	}
 }

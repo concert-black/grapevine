@@ -2,6 +2,12 @@ import * as constants from '/both/constants';
 
 Meteor.startup(() => {
   reconnectToServer(constants.RECONNECT_FREQUENCY, false);
+  const sort = localStorage.getItem('sort');
+  if (sort) {
+    Session.set('sort', sort);
+  } else {
+    Session.set('sort', constants.DEFAULT_SORT_METHOD);
+  }
 });
 
 Template.overlay.onRendered(() => {
@@ -21,7 +27,6 @@ Template.overlay.onRendered(() => {
 		});
 	}
 });
-
 function locate () {
 	if ('geolocation' in navigator) {
 	  const watch = navigator.geolocation.watchPosition((position) => {
