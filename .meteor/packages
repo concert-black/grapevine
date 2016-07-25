@@ -15,8 +15,6 @@ tracker                 # Meteor's client-side reactive programming library
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-fourseven:scss
-seba:minifiers-autoprefixer
 ejson
 iron:router
 materialize:materialize
@@ -31,3 +29,6 @@ meteorhacks:kadira
 fastclick
 reactive-var
 nspangler:autoreconnect
+fourseven:scss
+minifiers
+seba:minifiers-autoprefixer
