@@ -10,3 +10,7 @@ Router.route('/post/:id', {
     return Meteor.subscribe('post', this.params.id);
   }
 });
+Router.configure({
+    loadingTemplate: "overlay",
+    notFoundTemplate: "404"
+});
