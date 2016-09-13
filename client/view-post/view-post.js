@@ -30,7 +30,7 @@ Template.viewPost.helpers({
   },
   distance: function () {
     const position = JSON.parse(Session.get('position'));
-    return utilities.format(utilities.distance({
+    return utilities.format(geolib.getDistance({
         longitude: this.location.coordinates[0],
         latitude: this.location.coordinates[1]
       }, {
@@ -66,3 +66,5 @@ Template.comment.helpers({
 		return this.date;
 	}
 });
+
+// change thing to other thing

@@ -18,4 +18,22 @@ export function checkPost (content) {
   });
   return Match.test(content, length);
 }
+
+export function findPosts (position) {
+  return constants.POSTS.find({
+    'location': {
+      '$near': {
+        '$geometry': {
+          'type': 'Point',
+          'coordinates': [position.longitude, position.latitude]
+        },
+        '$maxDistance': constants.MAX_DISTANCE
+      }
+    }
+  });
+}
+export function getPost (id) {
+  return constants.POSTS.find({ id: id });
+}
+
 export const checkComment = checkPost;
