@@ -24,22 +24,29 @@ function triggerPost () {
 
 Template.allPosts.helpers({
   posts: () => {
-    const position = Session.get('position');
+    const position = JSON.parse(Session.get('position'));
     const options = {
-      age: { sort: { date: -1  } },
-      distance: {},
-      popularity: { sort: { commentCount: -1 } }
-    }[Session.get('sort')]; // possible values are defined in constants.js
-    return constants.POSTS.find({
-      'location': {
-        '$near': {
-          '$geometry': {
-            'type': 'Point',
-            'coordinates': [position.longitude, position.latitude]
-          }
-        }
+      age: (a, b) => {
+        return b.date.getTime() - a.date.getTime();
+      },
+      distance: (a, b) => {
+        const alpha = geolib.getDistance({
+            longitude: a.location.coordinates[0],
+            latitude: a.location.coordinates[1]
+          }, position)
+        const bravo = geolib.getDistance({
+            longitude: b.location.coordinates[0],
+            latitude: b.location.coordinates[1]
+          }, position);
+        return alpha - bravo;
+      },
+      popularity: (a, b) => {
+        return b.commentCount - a.commentCount;
       }
-    }, options);
+    }; // possible values are defined in constants.js
+    const posts = constants.POSTS.find().fetch(); // we don't use mongo for sorting here for a very good reason that I forgot
+    window.posts = posts;
+    return posts.sort(options[Session.get('sort')]);
   },
   empty: () => {
     return constants.POSTS.find().count() === 0;
@@ -64,13 +71,10 @@ Template.allPosts.events({
 Template.post.helpers({
   distance: function () {
     const position = JSON.parse(Session.get('position'));
-    return utilities.format(utilities.distance({
+    return utilities.format(geolib.getDistance({
         longitude: this.location.coordinates[0],
         latitude: this.location.coordinates[1]
-      }, {
-        longitude: position.longitude,
-        latitude: position.latitude
-      }), constants.UNITS.distance, false);
+      }, position), constants.UNITS.distance, false);
   },
   commentCount: function () {
     return this.commentCount;

@@ -32,3 +32,4 @@ nspangler:autoreconnect
 fourseven:scss
 minifiers
 seba:minifiers-autoprefixer
+fermuch:geolib
