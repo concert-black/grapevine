@@ -27,7 +27,7 @@
 <template name='post'>
   <li class='template-post'>
     <div class='distance gray'>{{distance}}</div>
-    <div class='content'>{{content}}</div>
+    <div class='content'>{{#link}}{{content}}{{/link}}</div>
     <div class='age-and-comment-counter gray'>{{> commentCounter count=commentCount}} {{livestamp date}}</div>
   </li>
 </template>

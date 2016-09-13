@@ -53,6 +53,9 @@ Template.allPosts.helpers({
   }
 });
 Template.allPosts.events({
+  'click a': (event) => {
+    event.stopPropagation();
+  },
   'click .post-button': (event) => {
     event.preventDefault();
     triggerPost();
@@ -64,10 +67,11 @@ Template.allPosts.events({
     }
   },
   'click .template-post': function (event) {
-    event.preventDefault();
+    // event.preventDefault();
     Router.go(`/post/${this.id}`);
   }
 });
+
 Template.post.helpers({
   distance: function () {
     const position = JSON.parse(Session.get('position'));

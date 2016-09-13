@@ -4,7 +4,7 @@
     {{> toolbar left='toolbarBack' title='Post' right='toolbarNone'}}
     <div class='scroll'>
       <div class='padded post'>
-        <p class='post-content content'>{{content}}</p>
+        <p class='post-content content'>{{#link}}{{content}}{{/link}}</p>
         <div class='details'>
           <p class='metadata'>Posted at {{time}}, {{distance}} away</p>
           <a target='_blank' class='location-button btn' href='{{location}}'>view location</a>
@@ -34,7 +34,7 @@
 
 <template name='comment'>
 	<li class='template-comment'>
-    <p class='content'>{{content}}</p>
+    <p class='content'>{{#link}}{{content}}{{/link}}</p>
     <p class='age gray'>{{livestamp date}}</p>
 	</li>
 </template>

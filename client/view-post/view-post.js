@@ -18,18 +18,23 @@ function triggerComment (id) {
 
 Template.viewPost.helpers({
   comments: function () {
-    return _.sortBy(this.comments, (object) => {
+    /*return _.sortBy(this.comments, (object) => {
       return -1 * (new Date(object.date));
+    });*/
+    return this.comments.sort((a, b) => {
+      return b.date.getTime() - a.date.getTime();
     });
   },
   empty: function () {
-    return this.comments.length === 0;
+    return this.commentCount === 0;
   },
   time: function () {
     return moment(this.date).format('h:mm:ss A');
   },
   distance: function () {
-    const position = JSON.parse(Session.get('position'));
+    let position = Session.get('position');
+    if (! position) return;
+    position = JSON.parse(position);
     return utilities.format(geolib.getDistance({
         longitude: this.location.coordinates[0],
         latitude: this.location.coordinates[1]
@@ -43,6 +48,9 @@ Template.viewPost.helpers({
   }
 });
 Template.viewPost.events({
+  'click a': (event) => {
+    event.stopPropagation();
+  },
   'click .template-toolbarBack': (event) => {
     event.preventDefault();
     Router.go('/');
@@ -57,14 +65,6 @@ Template.viewPost.events({
       triggerComment(template.data.id);
     }
   }
-});
-Template.comment.helpers({
-	content: function() {
-		return this.content;
-	},
-	date: function() {
-		return this.date;
-	}
 });
 
 // change thing to other thing

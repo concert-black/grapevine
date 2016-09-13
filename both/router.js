@@ -6,7 +6,7 @@ Router.route('/', function () {
 Router.route('/post/:id', {
   action: function () { this.render('viewPost'); },
   data: function () { return constants.POSTS.findOne({ id: this.params.id })},
-  subscriptions: function () {
+  waitOn: function () {
     return Meteor.subscribe('post', this.params.id);
   }
 });
