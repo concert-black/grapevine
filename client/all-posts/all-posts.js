@@ -67,8 +67,11 @@ Template.allPosts.events({
     }
   },
   'click .template-post': function (event) {
-    // event.preventDefault();
     Router.go(`/post/${this.id}`);
+  },
+  'click .sort-method': function (event) {
+    Session.set('sort', this.value);
+    localStorage.setItem('sort', this.value);
   }
 });
 
@@ -98,18 +101,11 @@ Template.commentCounter.helpers({
     return Template.currentData().count === 0;
   }
 });
-Template.toolbarSort.helpers({
+Template.toolbar.helpers({
   'sortMethods': function () {
     return constants.SORT_METHODS;
   },
   'selected': function () {
     return Session.get('sort') === this.value;
-  }
-});
-Template.toolbar.events({
-  'click .sort-method': function (event) {
-    event.preventDefault();
-    Session.set('sort', this.value);
-    localStorage.setItem('sort', this.value);
   }
 });

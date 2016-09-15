@@ -4,6 +4,12 @@
     <span class='title'>{{title}}</span>
     {{> Template.dynamic template=right}}
   </nav>
+  <ul class='dropdown-content mdl-menu mdl-menu--bottom-right mdl-js-menu'
+    for='menu'>
+    {{#each sortMethods}}
+      <li class='mdl-menu__item sort-method {{#if selected}}selected{{/if}}'>{{name}}</li>
+    {{/each}}
+  </ul>
 </template>
 
 <template name='toolbarInfo'>
@@ -19,18 +25,6 @@
       <path d='M0 0h24v24H0z' fill='none'></path>
     </svg>
   </a>
-  <!--<ul id='toolbar-sort-dropdown' class='dropdown-content'>
-    {{#each sortMethods}}
-      <li class='sort-method {{#if selected}}selected{{/if}}'><a href>{{name}}</a></li>
-      <li class='divider'></li>
-    {{/each}}
-  </ul>-->
-  <ul class='dropdown-content mdl-menu mdl-menu--bottom-right mdl-js-menu'
-    for='menu'>
-    {{#each sortMethods}}
-      <li class='mdl-menu__item sort-method {{#if selected}}selected{{/if}}'>{{name}}</li>
-    {{/each}}
-  </ul>
 </template>
 
 <template name='toolbarCreate toolbar-child'>

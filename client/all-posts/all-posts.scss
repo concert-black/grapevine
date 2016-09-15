@@ -66,3 +66,19 @@
 		}
 	}
 }
+.dropdown-content {
+	li {
+		a {
+			font-size: 14px !important;
+			color: $gray !important;
+			background: none;
+		}
+		&:hover {
+			background: darken(white, 6%) !important;
+		}
+		&.selected {
+			background: none;
+			color: $brown !important;
+		}
+	}
+}
