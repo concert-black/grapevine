@@ -1,5 +1,5 @@
 <template name='toolbar'>
-  <nav class='toolbar'>
+  <nav class='toolbar mdl-shadow--2dp'>
     {{> Template.dynamic template=left}}
     <span class='title'>{{title}}</span>
     {{> Template.dynamic template=right}}
@@ -13,16 +13,22 @@
 </template>
 
 <template name='toolbarSort'>
-  <a href data-activates='toolbar-sort-dropdown' class='template-toolbarSort button toolbar-child'>
+  <a href="javascript:void(0)" id="menu" class='template-toolbarSort button toolbar-child'>
     <svg viewBox='0 0 24 24'>
       <path d='M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z'></path>
       <path d='M0 0h24v24H0z' fill='none'></path>
     </svg>
   </a>
-  <ul id='toolbar-sort-dropdown' class='dropdown-content'>
+  <!--<ul id='toolbar-sort-dropdown' class='dropdown-content'>
     {{#each sortMethods}}
       <li class='sort-method {{#if selected}}selected{{/if}}'><a href>{{name}}</a></li>
       <li class='divider'></li>
+    {{/each}}
+  </ul>-->
+  <ul class='dropdown-content mdl-menu mdl-menu--bottom-right mdl-js-menu'
+    for='menu'>
+    {{#each sortMethods}}
+      <li class='mdl-menu__item sort-method {{#if selected}}selected{{/if}}'>{{name}}</li>
     {{/each}}
   </ul>
 </template>

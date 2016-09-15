@@ -106,21 +106,10 @@ Template.toolbarSort.helpers({
     return Session.get('sort') === this.value;
   }
 });
-Template.toolbarSort.events({
+Template.toolbar.events({
   'click .sort-method': function (event) {
     event.preventDefault();
     Session.set('sort', this.value);
     localStorage.setItem('sort', this.value);
   }
 });
-Template.toolbarSort.rendered = () => {
-  $('.template-toolbarSort').dropdown({
-    inDuration: 0,
-    outDuration: 0,
-    constrain_width: false, // does not change width of dropdown to that of the activator
-    hover: false, // activate on hover
-    gutter: 0, // spacing from edge
-    belowOrigin: false, // aisplays dropdown below the button
-    alignment: 'left' // displays dropdown with edge aligned to the left of button
-  });
-};

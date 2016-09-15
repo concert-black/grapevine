@@ -1,4 +1,6 @@
 import * as constants from '/both/constants';
+import dialogPolyfill from 'dialog-polyfill';
+import 'dialog-polyfill/dialog-polyfill.css';
 
 Meteor.startup(() => {
   reconnectToServer(constants.RECONNECT_FREQUENCY, false);
@@ -11,20 +13,25 @@ Meteor.startup(() => {
 });
 
 Template.overlay.onRendered(() => {
+  [
+    '.modal-error-connection',
+    '.modal-welcome',
+    '.modal-error-location-unsupported',
+    '.modal-error-location'
+  ].forEach((dialog) => {
+    const element = document.querySelector(dialog);
+    if (! element.showModal) dialogPolyfill.registerDialog(element);
+  });
 	if (localStorage.getItem('visited')) {
 		locate();
 	} else {
-		$('.modal-welcome').openModal({
-			dismissible: false, // modal cannot be dismissed by clicking outside of the modal
-      opacity: 0.5, // opacity of modal background
-      in_duration: 0, // transition in duration
-      out_duration: 0, // transition out duration
-      complete: () => {
-				locate();
-				$('.lean-overlay').remove(); // materialize sucks
-				localStorage.setItem('visited', true); // might break in private browsing
-			}
-		});
+    const dialog = document.querySelector('.modal-welcome');
+    dialog.showModal();
+    dialog.querySelector('.close').addEventListener('click', () => {
+      dialog.close();
+      locate();
+      localStorage.setItem('visited', true);
+    });
 	}
 });
 function locate () {
@@ -40,36 +47,28 @@ function locate () {
 					Session.set('loaded', true);
 				},
 				onStop: () => {
-					$('.modal-error-connection').openModal({
-						dismissible: false, // modal cannot be dismissed by clicking outside of the modal
-			      opacity: 0.5, // opacity of modal background
-			      in_duration: 0, // transition in duration
-			      out_duration: 0, // transition out duration
-					});
+          const dialog = document.querySelector('.modal-error-connection');
+					dialog.showModal();
+          dialog.querySelector('.close').addEventListener('click', () => {
+            dialog.close();
+          });
 				}
 			});
 	  }, (error) => {
 	    const position = Session.get('position');
 	    if (! position) {
 	      navigator.geolocation.clearWatch(watch);
-				$('.modal-error-location').openModal({
-					dismissible: false, // modal cannot be dismissed by clicking outside of the modal
-					opacity: 0.5, // opacity of modal background
-					in_duration: 0, // transition in duration
-					out_duration: 0, // transition out duration
-				});
+        const dialog = document.querySelector('.modal-error-location');
+				dialog.showModal();
 	    }
 	  }, {
 	    timeout: constants.LOCATION_TIMEOUT,
 	    enableHighAccuracy: false
 	  });
 	} else {
-		$('.modal-error-location-unsupported').openModal({
-			dismissible: false, // modal can be dismissed by clicking outside of the modal
-			opacity: 0.5, // opacity of modal background
-			in_duration: 0, // transition in duration
-			out_duration: 0, // transition out duration
-		});
+    alert('test');
+    const dialog = document.querySelector('.modal-error-location-unsupported');
+    dialog.showModal();
 	}
 }
 

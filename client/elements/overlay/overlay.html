@@ -6,30 +6,29 @@
       </svg>
     </div>
   </section>
-  <div class='modal modal-welcome'>
-    <div class='modal-content'>
-      <h4>Welcome.</h4>
-      <p class='content'>It looks like this is your first time on Grapevine. If you're running a mobile operating system, click <a href='http://lmgtfy.com/?q=how+to+add+a+website+to+my+homescreen' target='_blank'>here</a> to learn how to add Grapevine to your homescreen.</p>
-      <p class='content'>We'll need access to your location to fetch nearby posts.</p>
+  <dialog class='mdl-dialog modal-welcome'>
+    <h4 class='mdl-dialog__title'>Welcome.</h4>
+    <div class="mdl-dialog__content">
+      <p>It looks like this is your first time on Grapevine. If you're running a mobile operating system, click <a href='http://lmgtfy.com/?q=how+to+add+a+website+to+my+homescreen' target='_blank'>here</a> to learn how to add Grapevine to your homescreen.</p>
+      <p>We'll need access to your location to fetch nearby posts.</p>
     </div>
-    <div class='modal-footer'>
-      <a href='javascript: void(0)' class='modal-action modal-close btn-flat'>Fine, whatever</a>
+    <div class='mdl-dialog__actions'>
+      <button type='button' class='mdl-button close'>Fine, whatever</button>
     </div>
-  </div>
-  {{> error name='modal-error-connection' header='Fuck!' content="There was an error connecting to the server."}}
+  </dialog>
+  {{> error name='modal-error-connection' header='Fuck!' content='There was an error connecting to the server.'}}
   {{> error name='modal-error-location' header='Fuck!' content="We could't find you. If you're using a VPN, try turning it off. Also, if you're using any kind of private browsing mode, try turning that off too."}}
   {{> error name='modal-error-location-unsupported' header='Fuck!' content="Your browser doesn't support location. If you're using any kind of private browsing mode, try turning that off."}}
 </template>
 
 <template name='error'>
-	<div class='template-error modal {{name}}'>
-		<div class="modal-content">
-	    <h4>{{header}}</h4>
-	    <p class='content'>{{content}}</p>
+	<dialog class='template-error mdl-dialog {{name}}'>
+    <h4 class='mdl-dialog__title'>{{header}}</h4>
+		<div class='mdl-dialog__content'>
+	    <p>{{content}}</p>
     </div>
-    <div class='modal-footer'>
-      <a href='javascript: void(0)' onClick='window.location.reload()' class='btn-flat'>Try Again</a>
-      <a href='mailto:mail@evangoo.de' class='btn-flat'>Bother the Developer</a>
+    <div class='mdl-dialog__actions'>
+      <button type='button' class='mdl-button'>Try Again</button>
     </div>
-	</div>
+	</dialog>
 </template>

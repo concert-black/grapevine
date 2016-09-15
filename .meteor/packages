@@ -17,14 +17,11 @@ ecmascript@0.5.8              # Enable ECMAScript2015+ syntax in app code
 
 ejson@1.0.12
 iron:router
-materialize:materialize
 check@1.2.3
 copleykj:livestamp
 momentjs:moment
 
 
-thepumpinglemma:chance
-ccorcos:transitioner
 meteorhacks:kadira
 fastclick@1.0.12
 reactive-var@1.0.10
@@ -35,3 +32,4 @@ seba:minifiers-autoprefixer
 fermuch:geolib
 shell-server
 konecty:autolinker
+zodiase:mdl

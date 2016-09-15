@@ -6,7 +6,11 @@ $brown: hsl(16, 25%, 38%);
 $gray: hsl(0, 0%, 62%);
 $padding: 18px;
 $font-size: 14px;
-$min-width: 128px;
+$min-width: 256px;
+
+$color-primary: "121, 86, 73";
+$color-accent: $color-primary;
+@import '{zodiase:mdl}/theme';
 
 // mixins that are I guess useful
 @mixin flex-padding-row($padding) {
@@ -37,7 +41,6 @@ $min-width: 128px;
 // some broad definitions
 * {
 	transition: none !important; // fuck animations
-	// overflow: visible;
 	box-sizing: border-box;
 	user-select: none;
 	-webkit-tap-highlight-color: hsla(0, 0, 0, 0);
@@ -47,49 +50,36 @@ html, body {
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
-	font-size: 14px;
-	// position: fixed;
+  overflow-x: scroll;
   min-width: $min-width;
 }
 body {
-	font-family: 'Lato';
+  font-size: $font-size;
+	font-family: 'Lato' !important;
 }
 textarea {
 	user-select: text;
-	padding: 0 !important;
-	margin: 0 !important;
 	font-size: 16px !important;
 }
-.materialize-textarea:focus {
-  border-bottom: 1px solid $brown !important;
-  box-shadow: 0 1px 0 0 $brown !important;
+a {
+  outline: none;
 }
 .page {
 	flex-direction: column;
 	display: flex;
 	height: 100%;
 }
-.btn, .btn-flat { // these are the materialize buttons
-	padding: 0 1rem !important;
-}
-.btn {
-	overflow: visible !important;
-	background: $brown !important;
-  text-transform: capitalize;
-}
-.btn-flat {
-  color: $purple;
-}
-.select-dropdown {
-  margin: 0 !important;
-}
+
 hr {
 	background: $gray;
 	height: 1px;
 	width: calc(100% - #{$padding});
-	border: 0;
-	margin: 0;
-	margin-left: $padding;
+	border: 0 !important;
+	margin: 0 0 0 $padding !important;
+}
+
+.mdl-menu__item-ripple-container {
+  display: none !important;
 }
 
 // utilities
@@ -107,8 +97,6 @@ hr {
 	cursor: pointer;
 }
 .hidden {
-	// pointer-events: none;
-	// opacity: 0;
   display: none;
 }
 .overflow-hidden {

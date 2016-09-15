@@ -4,10 +4,20 @@
 	display: flex;
 	align-items: flex-end;
 	flex-direction: column;
-	@include flex-padding-column($padding);
-	.post-input {
-		// height: auto !important;
+	.text-input {
+		border: none;
+		box-shadow: 0 1px 0 $gray;
+		outline: none;
+		resize: none;
+		font-weight: inherit;
+		font-family: inherit;
+		padding: 0 !important;
+		width: 100%;
+		&:focus {
+			box-shadow: 0 2px 0 $brown;
+		}
 	}
+	@include flex-padding-column($padding);
 	.remaining {
 		margin: 0;
 		font-size: 12px;

@@ -8,7 +8,7 @@ Template.input.onCreated(function () {
 Template.input.helpers({
   canPost: () => {
     const value = Template.instance().value.get();
-    return utilities.checkPost(value);
+    return utilities.checkPost(value) ? "" : "disabled";
   },
   remaining: () => {
 		const value = Template.instance().value.get();
