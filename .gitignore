@@ -1,6 +1,5 @@
-settings.json
-strings.js
-mup.json
 canary.txt
 node_modules
+.deploy
+mup.json
 *.swp
