@@ -44,6 +44,7 @@ $color-accent: $color-primary;
 	box-sizing: border-box;
 	user-select: none;
 	-webkit-tap-highlight-color: hsla(0, 0, 0, 0);
+	font-family: 'Lato' !important; // mdl tends to fuck with things
 }
 html, body {
 	margin: 0;
@@ -55,7 +56,6 @@ html, body {
 }
 body {
 	font-size: $font-size;
-	font-family: 'Lato' !important;
 }
 .page {
 	flex-direction: column;
@@ -139,4 +139,14 @@ textarea {
 // mdl overrides
 .mdl-menu__item-ripple-container {
 	display: none !important;
+}
+.mdl-dialog {
+	width: 90% !important;
+	max-width: 384px !important;
+}
+.mdl-dialog__actions .mdl-button {
+	color: $purple !important;
+	&:focus {
+		background: initial !important;
+	}
 }

@@ -1,0 +1,20 @@
+.template-shrug {
+	.arm {
+		display: inline-block;
+		transition: transform 0.1s ease !important;
+	}
+	.left {
+		transform-origin: bottom right;
+	}
+	.right {
+		transform-origin: bottom left;
+	}
+	&:hover {
+		.left {
+			transform: scale(1.12) rotate(-5deg);
+		}
+		.right {
+			transform: scale(1.12) rotate(5deg);
+		}
+	}
+}

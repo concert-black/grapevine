@@ -4,11 +4,7 @@ import utilities from '/both/utilities';
 function triggerComment (id) {
 	const post = id;
 	const comment = $('.text-input').val();
-	if (! comment) return; // fail silently if comment is empty
-	if (! utilities.checkPost(comment)) {
-		alert('Invalid comment.');
-		return;
-	}
+	if (! utilities.checkComment(comment)) return;
 	Meteor.call('posts.comment', comment, post);
 	Session.set('draft', '');
 	$('.text-input').val('');

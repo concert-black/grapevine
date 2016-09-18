@@ -2,4 +2,5 @@ settings.json
 strings.js
 mup.json
 canary.txt
+node_modules
 *.swp

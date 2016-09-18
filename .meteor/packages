@@ -22,7 +22,6 @@ copleykj:livestamp
 momentjs:moment
 
 
-meteorhacks:kadira
 fastclick@1.0.12
 reactive-var@1.0.10
 nspangler:autoreconnect
@@ -31,5 +30,4 @@ minifiers
 seba:minifiers-autoprefixer
 fermuch:geolib
 shell-server
-konecty:autolinker
 zodiase:mdl
