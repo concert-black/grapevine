@@ -10,12 +10,19 @@ Router.route('/', function () {
 });
 Router.route('/post/:id', {
 	action: function () {
-		this.render('viewPost');
+		if (this.data()) {
+			this.render('viewPost');
+		} else {
+			this.render('404');
+		}
 	},
 	data: function () {
 		return constants.posts.findOne({ id: this.params.id });
 	},
 	waitOn: function () {
-		return Meteor.subscribe('post', this.params.id);
+		if (! constants.posts.findOne({ id: this.params.id })) {
+			return Meteor.subscribe('post', this.params.id);
+		}
+		return;
 	},
 });

@@ -50,7 +50,7 @@ Template.allPosts.helpers({
 	},
 });
 Template.allPosts.events({
-	'click a': (event) => {
+	'click .template-post a': (event) => {
 		event.stopPropagation();
 	},
 	'click .post-button': (event) => {

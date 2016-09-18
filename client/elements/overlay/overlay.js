@@ -75,6 +75,8 @@ function locate () {
 
 Template.overlay.helpers({
 	hidden: () => {
-		return Session.get('loaded') && Meteor.status().status === 'connected';
+		hidden = Session.get('loaded') && Meteor.status().status === 'connected';
+		if (hidden) $('*').trigger('blur');
+		return hidden;
 	}
 });
