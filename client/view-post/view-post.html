@@ -1,40 +1,40 @@
 <template name='viewPost'>
-  <section class='template-view-post page'>
-    {{> overlay}}
-    {{> toolbar left='toolbarBack' title='Post' right='toolbarNone'}}
-    <div class='scroll'>
-      <div class='padded post'>
-        <p class='post-content content'>{{#link}}{{content}}{{/link}}</p>
-        <div class='details'>
-          <p class='metadata'>Posted at {{time}}, {{distance}} away</p>
-          <a target='_blank' class='location-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored' href='{{location}}'>view location</a>
-        </div>
-      </div>
-      <hr>
-      <div class='padded'>
-        {{> input placeholder='New comment'}}
-      </div>
-      <hr>
-      <div class='comments'>
-        <ul class='list comment-list'>
-          {{#if empty}}
-            <div class='empty padded'>
-              <p>No comments yet.<br>¯\_(ツ)_/¯</p>
-            </div>
-          {{else}}
-            {{#each comments}}
-      				{{> comment}}
-            {{/each}}
-          {{/if}}
-    		</ul>
-      </div>
-    </div>
-  </section>
+	<section class='template-view-post page'>
+		{{> overlay}}
+		{{> toolbar left='toolbarBack' title='Post' right='toolbarNone'}}
+		<div class='scroll'>
+			<div class='padded post'>
+				<p class='post-content content'>{{#link}}{{content}}{{/link}}</p>
+				<div class='details'>
+					<p class='metadata'>Posted at {{time}}, {{distance}} away</p>
+					<a target='_blank' class='location-button mdl-button mdl-js-button mdl-button--raised mdl-button--colored' href='{{location}}'>View Location</a>
+				</div>
+			</div>
+			<hr>
+			<div class='padded'>
+				{{> input placeholder='New comment'}}
+			</div>
+			<hr>
+			<div class='comments'>
+				<ul class='list comment-list'>
+					{{#if empty}}
+						<div class='empty padded'>
+							<p>No comments yet.<br>¯\_(ツ)_/¯</p>
+						</div>
+					{{else}}
+						{{#each comments}}
+							{{> comment}}
+						{{/each}}
+					{{/if}}
+				</ul>
+			</div>
+		</div>
+	</section>
 </template>
 
 <template name='comment'>
 	<li class='template-comment'>
-    <p class='content'>{{#link}}{{content}}{{/link}}</p>
-    <p class='age gray'>{{livestamp date}}</p>
+		<p class='content'>{{#link}}{{content}}{{/link}}</p>
+		<p class='age gray'>{{livestamp date}}</p>
 	</li>
 </template>

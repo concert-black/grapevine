@@ -1,12 +1,11 @@
-import * as constants from '/both/constants';
-import * as utilities from '/both/utilities';
+import constants from '/both/constants';
+import utilities from '/both/utilities';
 
-constants.POSTS._ensureIndex({ 'location': '2dsphere' });
-constants.POSTS._ensureIndex({ 'date': 1 }, { expireAfterSeconds : constants.POST_LIFE });
-Meteor.publish('posts', (position) => {
-  return utilities.findPosts(position);
-});
+constants.posts._ensureIndex({ 'location': '2dsphere', });
+constants.posts._ensureIndex(
+	{ 'date': 1 },
+	{ expireAfterSeconds: constants.postLife },
+);
 
-Meteor.publish('post', (id) => {
-  return utilities.getPost(id);
-});
+Meteor.publish('posts', position => utilities.findPosts(position));
+Meteor.publish('post', id => utilities.getPost(id));

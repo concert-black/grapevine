@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato); // should probably host these ourselves
+@import url(https://fonts.googleapis.com/css?family=Lato); // should probably host this ourselves
 
 // constants
 $purple: hsl(280, 24%, 50%);
@@ -8,14 +8,14 @@ $padding: 18px;
 $font-size: 14px;
 $min-width: 256px;
 
-$color-primary: "121, 86, 73";
+$color-primary: '121, 86, 73';
 $color-accent: $color-primary;
 @import '{zodiase:mdl}/theme';
 
 // mixins that are I guess useful
 @mixin flex-padding-row($padding) {
-  > * {
-    flex: none;
+	> * {
+		flex: none;
 		margin: 0 #{$padding / 2} 0 #{$padding / 2} !important;
 		&:first-child {
 			margin-left: 0 !important;
@@ -27,7 +27,7 @@ $color-accent: $color-primary;
 }
 @mixin flex-padding-column($padding) {
 	> * {
-    flex: none;
+		flex: none;
 		margin: #{$padding / 2} 0 #{$padding / 2} 0 !important;
 		&:first-child {
 			margin-top: 0 !important;
@@ -40,7 +40,7 @@ $color-accent: $color-primary;
 
 // some broad definitions
 * {
-	transition: none !important; // fuck animations
+	transition: none !important; // animations are so 2015
 	box-sizing: border-box;
 	user-select: none;
 	-webkit-tap-highlight-color: hsla(0, 0, 0, 0);
@@ -50,26 +50,21 @@ html, body {
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
-  overflow-x: scroll;
-  min-width: $min-width;
+	overflow-x: scroll;
+	min-width: $min-width;
 }
 body {
-  font-size: $font-size;
+	font-size: $font-size;
 	font-family: 'Lato' !important;
-}
-textarea {
-	user-select: text;
-	font-size: 16px !important;
-}
-a {
-  outline: none;
 }
 .page {
 	flex-direction: column;
 	display: flex;
 	height: 100%;
 }
-
+a {
+	outline: none;
+}
 hr {
 	background: $gray;
 	height: 1px;
@@ -77,9 +72,9 @@ hr {
 	border: 0 !important;
 	margin: 0 0 0 $padding !important;
 }
-
-.mdl-menu__item-ripple-container {
-  display: none !important;
+textarea {
+	user-select: text;
+	font-size: 16px !important;
 }
 
 // utilities
@@ -97,7 +92,7 @@ hr {
 	cursor: pointer;
 }
 .hidden {
-  display: none;
+	display: none;
 }
 .overflow-hidden {
 	overflow: hidden;
@@ -105,9 +100,9 @@ hr {
 .content {
 	word-break: break-word;
 	hyphens: auto;
-  &, * {
-    user-select: text;
-  }
+	&, * {
+		user-select: text;
+	}
 }
 .scroll {
 	overflow: auto;
@@ -117,11 +112,9 @@ hr {
 	color: $gray;
 }
 .empty {
-  font-size: 20px;
-  text-align: center;
-  color: $gray;
+	text-align: center;
+	color: $gray;
 }
-
 .list {
 	list-style-type: none;
 	margin: 0;
@@ -141,4 +134,9 @@ hr {
 		align-items: center;
 		justify-content: space-between;
 	}
+}
+
+// mdl overrides
+.mdl-menu__item-ripple-container {
+	display: none !important;
 }

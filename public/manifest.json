@@ -1,14 +1,14 @@
 {
-  "short_name": "Grapevine",
-  "name": "Grapevine",
-  "icons": [
-    {
-      "src": "/g-icon-rounded-gray-background.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "theme_color": "#8a619e",
-  "display": "standalone",
-  "orientation": "portrait"
+	"short_name": "Grapevine",
+	"name": "Grapevine",
+	"icons": [
+		{
+			"src": "/g-icon-rounded-gray-background.png",
+			"sizes": "512x512",
+			"type": "image/png",
+		},
+	],
+	"theme_color": "#8a619e",
+	"display": "standalone",
+	"orientation": "portrait",
 }

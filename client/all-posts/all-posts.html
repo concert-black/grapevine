@@ -1,42 +1,42 @@
 <template name='allPosts'>
-  <section class='template-all-posts page'>
-    {{> overlay}}
-    {{> toolbar left='toolbarNone' title='All Posts' right='toolbarSort'}}
-    <div class='scroll'>
-      <div class='padded'>
-        {{> input placeholder='New post'}}
-      </div>
-      <hr>
-      <div class='posts'>
-        <ul class='list post-list'>
-          {{#if empty}}
-            <div class='empty padded'>
-              <p>No posts yet.<br>¯\_(ツ)_/¯</p>
-            </div>
-          {{else}}
-            {{#each posts}}
-              {{> post}}
-            {{/each}}
-          {{/if}}
-        </ul>
-      </div>
-    </div>
-  </section>
+	<section class='template-all-posts page'>
+		{{> overlay}}
+		{{> toolbar left='toolbarNone' title='All Posts' right='toolbarSort'}}
+		<div class='scroll'>
+			<div class='padded'>
+				{{> input placeholder='New post'}}
+			</div>
+			<hr>
+			<div class='posts'>
+				<ul class='list post-list'>
+					{{#if empty}}
+						<div class='empty padded'>
+							<p>No posts yet.<br>¯\_(ツ)_/¯</p>
+						</div>
+					{{else}}
+						{{#each posts}}
+							{{> post}}
+						{{/each}}
+					{{/if}}
+				</ul>
+			</div>
+		</div>
+	</section>
 </template>
 
 <template name='post'>
-  <li class='template-post'>
-    <div class='distance gray'>{{distance}}</div>
-    <div class='content'>{{#link}}{{content}}{{/link}}</div>
-    <div class='age-and-comment-counter gray'>{{> commentCounter count=commentCount}} {{livestamp date}}</div>
-  </li>
+	<li class='template-post'>
+		<div class='distance gray'>{{distance}}</div>
+		<div class='content'>{{#link}}{{content}}{{/link}}</div>
+		<div class='age-and-comment-counter gray'>{{> commentCounter count=commentCount}} {{livestamp date}}</div>
+	</li>
 </template>
 
 <template name='commentCounter'>
-  <span class='template-comment-counter {{#if noComments}}hidden{{/if}} {{color}}'>
-    <span class='comment-count'>{{count}}</span>
-    <svg viewBox="0 0 24 24" class='comment-icon'>
-      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
-    </svg>
-  </span>
+	<span class='template-comment-counter {{#if noComments}}hidden{{/if}} {{color}}'>
+		<span class='comment-count'>{{count}}</span>
+		<svg viewBox='0 0 24 24' class='comment-icon'>
+			<path d='M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z'></path>
+		</svg>
+	</span>
 </template>

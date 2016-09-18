@@ -21,9 +21,9 @@ $length: 540.6;
 		animation: transform 2s ease-in-out alternate infinite;
 		.g {
 			stroke: $purple;
-		  stroke-dasharray: $length;
-		  stroke-dashoffset: $length;
-		  animation: outline 4s ease-in-out alternate infinite;
+			stroke-dasharray: $length;
+			stroke-dashoffset: $length;
+			animation: outline 4s ease-in-out alternate infinite;
 		}
 	}
 }
