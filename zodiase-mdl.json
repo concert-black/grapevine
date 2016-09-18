@@ -1,6 +1,3 @@
 {
-	"theme": false,
-	"patches": {
-		"autoUpgrade": false
-	}
+	"theme": false
 }
