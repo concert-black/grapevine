@@ -40,11 +40,14 @@ $color-accent: $color-primary;
 
 // some broad definitions
 * {
-	transition: none !important; // animations are so 2015
+	transition: all 0.4s !important; // know what, animations are actually pretty cool
 	box-sizing: border-box;
 	user-select: none;
-	-webkit-tap-highlight-color: hsla(0, 0, 0, 0);
 	font-family: 'Lato' !important; // mdl tends to fuck with things
+
+	-webkit-tap-highlight-color: hsla(0, 0, 0, 0);
+	-webkit-appearance: none;
+	border-radius: 0;
 }
 html, body {
 	margin: 0;
@@ -91,7 +94,11 @@ textarea {
 .button, {
 	cursor: pointer;
 }
-.hidden {
+.hide {
+	pointer-events: none;
+	opacity: 0;
+}
+.display-none {
 	display: none;
 }
 .overflow-hidden {
